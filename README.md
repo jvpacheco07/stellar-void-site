@@ -1,2 +1,2 @@
-# Site---STELLAR-VOID
+# Site STELLAR-VOID
 Site do jogo
