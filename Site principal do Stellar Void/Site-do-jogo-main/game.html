@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="pt-PT">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stellar Void</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Loading overlay shown until the page is fully ready -->
+  <div id="site-loader" aria-hidden="true">
+    <div class="loader-inner" role="status" aria-live="polite">
+      <img src="media/img/stellarvoid_icon_barra.png" alt="Stellar Void" class="loader-logo">
+      <div class="spinner" aria-hidden="true"></div>
+      <div class="loader-text">Carregando…</div>
+      <div class="loader-progress" aria-hidden="true">
+        <div class="loader-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <img src="media/img/stellarvoid_icon_barra.png" alt="Stellar Void" class="logo-barra">
+    <div class="header-right">
+      <nav aria-label="Navegação principal">
+        <a href="#sobre"><img src="media/img/keycaps/Keycap_sobre.png" alt="Sobre"></a>
+        <a href="#trailer"><img src="media/img/keycaps/Keycap_trailer.png" alt="Trailer"></a>
+        <a href="#download"><img src="media/img/keycaps/Keycap_download.png" alt="Download" class="download_tamanho"></a>
+      </nav>
+      <span class="player-wrap">
+        <span class="player-message" aria-hidden="true">Clique na nave para mostrar as abas!</span>
+        <img src="media/gifs/spr_jogador_scaled_50x_minified.gif" alt="Player" class="player-icon">
+      </span>
+    </div>
+  </header>
+  <div class="header-underline"></div>
+
+  <main>
+    <div class="hero-wrapper">
+      <div class="media-frame">
+        <img src="media/gifs/Animation.gif" alt="Animação Stellar Void" class="gif-topo" loading="lazy" decoding="async" draggable="false" ondragstart="return false;">
+        <div class="media-lock" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="caixa">
+      <h2 id="hero-title">ENFRENTA AS FROTAS!</h2>
+      <H2>----------------------------------</H2>
+      <p>
+        É um SpaceShooter rápido e desafiador que contém habilidades e algumas
+        variedades de inimigos. Ótimo para aqueles que querem desafiar-se ao
+        extremo e que gostam de jogos com ritmos rápidos.
+      </p>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="caixa">
+      <h2 id="sobre">SOBRE O JOGO</h2>
+      <H2>----------------------------------</H2>
+        <div class="sobre">
+          <section aria-labelledby="sobre-historia">
+            <h3 id="sobre-historia">História do jogo</h3>
+              <p>
+                O ano é 3125. Após séculos de expansão humana pelo espaço, a Federação
+                Galáctica colonizou dezenas de sistemas estelares. Mas a ambição humana
+                abriu um portal para o desconhecido — o Vazio Estelar, uma anomalia cósmica
+                onde a luz desaparece e o tempo se distorce.Das profundezas desse vazio
+                surgiram máquinas autônomas de origem desconhecida. Elas se
+                autodenominam a Legião do Silício, e têm apenas um propósito: aniquilar toda
+                forma de vida biológica.Os cientistas acreditam que essas máquinas são ecos
+                de uma antiga civilização — inteligências artificiais abandonadas, evoluídas
+                além do controle. Agora, elas se espalham pelas colônias humanas,
+                convertendo planetas inteiros em fábricas de guerra.Você é o piloto de uma
+                nave experimental da Federação, o protótipo SV-01 (Stellar Vanguard),
+                equipada com tecnologia recuperada do próprio Vazio. Sua missão é simples e
+                suicida: Reconquistar os sistemas perdidos e descobrir o que realmente
+                controla o Vazio.
+              </p>
+              <br>
+              <br>
+              <br>
+              <h3 id="sobre-objetivo">Objetivo</h3>
+              <p>
+                Você controla uma nave espacial que se move nas 4 direções (WASD). A nave
+                está equipada com escudo e armamento, e aponta para cima — a direção do
+                seu objetivo. Os inimigos básicos são naves estáticas que atiram apenas para
+                frente, todas apontadas para baixo. Há também uma nave inimiga forte, maior
+                que as outras, com um tiro especial que se divide em duas direções.
+              </p>
+              <br>
+              <br>
+              <br>
+              <h3 id="sobre-inimigos">Inimigos</h3>
+              <p>
+                Atualmente, o jogo tem 8 inimigos, cada um com comportamento único:
+                <br>
+                <br>
+                <ul>
+                  <li>
+                    "Basic Machines" — Inimigo simples que fica estático e atira numa
+                    única direção. Animado em sequences, tem apenas 2 de vida e aparece em
+                    grande quantidade.
+                  </li>
+                  <br>
+                  <li>
+                    "Kamikazes" — Inimigo com IA básica de máquina de estados. Ele
+                    surge e move-se para uma posição aleatória. Ao chegar, entra num estado
+                    onde dispara 3 tiros (os tiros seguem a última direção do jogador). Depois,
+                    transforma-se num kamikaze e avança para a posição do jogador, sendo
+                    destruído ao atingir o alvo. Tem apenas 3 de vida e geralmente aparece em
+                    dupla.
+                  </li>
+                  <br>
+                  <li>
+                    "Strong Machine" — Funciona de forma semelhante ao "Kamikaze",
+                    mas mantém-se estático e alterna entre 2 tipos de tiro: um que persegue o
+                    jogador e outro que dispara em 3 ângulos diferentes. Após atirar 3 vezes, foge
+                    da batalha. Tem 8 de vida — é um inimigo desafiante, mas balanceado.
+                  </li>
+                  <br>
+                  <li>
+                    "MK1" — É o chefe de Stellar Void. Fica estático no topo da tela e tem
+                    alta resistência. Possui 3 fases desafiadoras:
+                    <ul>
+                      <li>1ª fase: Atira projéteis na direção do jogador em 5 ângulos
+                          diferentes e pode invocar 2 Basic Machines.</li>
+                      <li>2ª fase: Atira 10 projéteis com velocidade maior.</li>
+                      <li>3ª fase: Atira 5 projéteis com menor intervalo entre disparos.</li>
+                  </li>
+                </ul>
+                  <br>
+                    <li>
+                    "Space Ranger" — Trata-se de um inimigo patrulhador. Dispara 2 projéteis que segue em
+                    linha reta. Se movimenta um pouco para a esquerda depois para direita. Tem 6
+                    de vida — É um Basic Machine melhorado.
+                    </li>
+                  <br>
+                    <li>
+                      “Warrior X” — Segundo inimigo desenhado e animado pelo João
+                      Pacheco. Inimigo combatente, enfrenta-lo é um desafio para o jogador. Dispara
+                      2 mísseis teleguiados com intervalo de 2 segundos. O player terá um feedback
+                      visual - um target que terá um som de mira ao alvo. Tem 8 de vida.
+                    </li>
+                  <br>
+                    <li>
+                     “Operators” — O Operator é o terceiro inimigo desenhado e animado
+                      por João Pacheco. Ele é invocado diretamente pelo OVNI, surgindo em
+                      combate como uma unidade ágil e difícil de atingir. Seu tamanho reduzido o
+                      torna um alvo desafiador, forçando o jogador a ajustar a mira e o tempo de
+                      disparo.
+                    </li>
+                  <br>
+                    <li>
+                      “OVNI” — Inspirado em ETS de marte, os OVNIS são máquinas
+                      desconhecidas, dizem que dentro delas habitam muitos inimigos. Ela irá
+                      escolher quem invocar - 4 operators, 2 space ranger ou 1 Warrior X. Essa
+                      máquina é um tanque que dura muito na batalha. Tem 150 pontos de vida.
+                    </li>
+              </p>
+          </section>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="caixa">
+      <h2 id="trailer">TRAILER</h2>
+      <H2>----------------------------------</H2>
+      <div class="video-wrapper">
+        <video class="trailer-video" controls preload="metadata">
+          <source src="media/Videos/Trailer.mp4" type="video/mp4">
+          O teu navegador não suporta vídeo HTML5.
+        </video>
+      </div>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="caixa">
+      <h2 id="download">DOWNLOAD</h2>
+        <div class="download">
+          <section aria-labelledby="download-title">
+            <h3 id="download-title">Download</h3>
+              <p>Versão tester disponível para download.</p>
+              <p><a href="Stellar_Void.zip" download="stellar-void.zip" type="application/zip">Instalar jogo (ZIP)</a></p>
+              <p>Ou experimentar localmente mantendo os ficheiros na mesma pasta e abrindo o ficheiro HTML no navegador.</p>
+          </section>
+        </div>
+    </div>
+
+    
+      <section id="como-jogar" aria-labelledby="como-title">
+        <section aria-labelledby="trailer-title">
+          <h3 id="trailer-title">Recursos principais</h3>
+        </section>
+        <h3 id="como-title">Como experimentar</h3>
+        <ol>
+          <li>Instale o arquivo do jogo.</li>
+          <li>Descompacte o arquivo e clique duas vezes no arquivo .exe</li>
+          <li>Se divirta!</li>
+        </ol>
+      </section>
+    </div>
+
+    
+
+    <section id="capturas" aria-labelledby="capturas-title">
+      <h3 id="capturas-title">Captura de ecrã</h3>
+      <p><img src="media/img/stellar void img.jpg" alt="Captura de ecrã do Stellar Void (substitua por imagem real)" /></p>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <h3 id="faq-title">Perguntas frequentes</h3>
+      <dl>
+        <dt>Preciso de instalar algo?</dt>
+        <dd>Sim - Precisa instalar o arquivo do jogo na aba Download.</dd>
+        <dt>Funciona em mobile?</dt>
+        <dd>O jogo foi desenvolvido para Desktop; desempenho em dispositivos móveis depende do hardware.</dd>
+      </dl>
+    </section>
+
+    <section id="contato" aria-labelledby="contato-title">
+      <h3 id="contato-title">Contacto</h3>
+      <p>Para feedback ou suporte técnico, envie um email para: <a
+          href="mailto:suporte@exemplo.com">suporte@exemplo.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Stelar Void — demo interativa • © <!-- ano --> 2025</p>
+  </footer>
+
+<script src="cursor.js"></script>
+<script src="logo-visibility.js"></script>
+<script src="smooth-scroll.js"></script>
+<script src="loader.js"></script>
+<script src="protect-media.js"></script>
+<script src="script_teste.js"></script>
+  <!-- floating up-arrow in bottom-right -->
+  <a href="#" class="corner-up" aria-label="Voltar ao topo">
+    <img src="media/img/keycaps/keycap_seta_cima.png" alt="Subir" />
+  </a>
+  <span class="corner-message" aria-hidden="true">Clique aqui para voltar ao topo do site!</span>
+  
+</body>
+
+</html>
