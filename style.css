@@ -25,12 +25,15 @@ body {
   margin: 0;
   font-family: monospace;
   background-image: url(media/img/Background_site.png);
+  /* Dark fallback colour so the page never shows white when image doesn't fill area */
+  background-color: #04040a;
   background-size: cover; /* fill the viewport */
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center center;
   background-attachment: scroll; /* allow background to move with page scroll */
+  min-height: 100vh;
   cursor: url(media/img/spr_gui_vida.cur), default;
-}
+} 
 
 /* Custom cursor visuals (optimized) */
 .custom-cursor {
@@ -68,12 +71,13 @@ body {
   }
 }
 
-/* On small screens, avoid excessive cropping by fitting width instead */
+/* On small screens, ensure the background fully covers the viewport and use the dark fallback colour */
 @media (max-width: 800px) {
   body {
-    background-size: 100% auto;
+    background-size: cover;
     background-attachment: scroll;
     background-position: center center;
+    background-color: #04040a;
   }
 }
 
@@ -832,6 +836,93 @@ a, button, .clicavel {
   .trailer-video {
     height: auto;
   }
+}
+
+/* Mobile / small-screen adjustments to prevent layout break */
+@media (max-width: 720px) {
+  header {
+    height: auto;
+    padding: 8px 12px;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-barra {
+    height: 56px;
+    margin-top: 0;
+    margin-left: 8px;
+  }
+  nav img {
+    width: auto;
+    max-width: 110px;
+    height: auto;
+  }
+  nav {
+    gap: 6px;
+  }
+  .header-right {
+    gap: 6px;
+  }
+  .player-icon {
+    height: 40px;
+    margin-left: 12px;
+    margin-right: 12px;
+    transform: rotate(-90deg);
+  }
+  .player-message {
+    display: none;
+  }
+  .player-wrap.launch { transform: translateX(-18px) translateY(-4px); }
+  .gif-topo, img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 0;
+  }
+  .sobre {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .caixa {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  #hero-title, .caixa h2 {
+    font-size: 1.6rem;
+  }
+  p, li {
+    font-size: 1rem;
+  }
+  nav img[src="media/img/keycaps/Keycap_download.png"],
+  .download_tamanho {
+    max-width: 140px !important;
+    max-height: 90px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  header {
+    padding: 6px 8px;
+  }
+  .logo-barra {
+    height: 48px;
+  }
+  nav img {
+    max-width: 90px;
+  }
+  .corner-up { right: 12px; bottom: 12px; width: 48px; }
+  main { padding-top: 88px; } /* keep space for fixed header */
+  .player-icon { height: 36px; margin-right: 10px; }
+  .caixa { padding: 0.8rem; margin: 0.8rem; }
+  .gif-topo { margin-top: -40px; }
+  img { border-radius: 4px; }
+}
+
+/* Ensure images never force horizontal scroll */
+img, .gif-topo, .trailer-video {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
 }
 
 /* Debug helpers removed */
