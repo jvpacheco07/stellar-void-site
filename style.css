@@ -3,24 +3,6 @@ html {
   scroll-padding-top: 92px; /* Prevent fixed header from overlapping anchor targets */
 }
 
-.snowflake {
-        position: fixed;
-        top: -10px;
-        color: white;
-        font-size: 12px;
-        opacity: 0.8;
-        user-select: none;
-        pointer-events: none;
-        animation-name: fall;
-        animation-timing-function: linear;
-    }
-
-    @keyframes fall {
-        to {
-            transform: translateY(110vh);
-        }
-      }
-
 body {
   margin: 0;
   font-family: monospace;
@@ -56,21 +38,6 @@ body {
   animation: cursorGlow 1200ms linear infinite;
 }
 
-@keyframes cursorGlow {
-  0% {
-    box-shadow: 0 0 3px rgba(179,102,255,0.85), 0 0 6px rgba(0,204,255,0.28);
-    filter: drop-shadow(0 1px 3px rgba(179,102,255,0.28));
-  }
-  50% {
-    box-shadow: 0 0 7px rgba(179,102,255,0.9), 0 0 12px rgba(0,204,255,0.45);
-    filter: drop-shadow(0 2px 5px rgba(179,102,255,0.45));
-  }
-  100% {
-    box-shadow: 0 0 3px rgba(179,102,255,0.85), 0 0 6px rgba(0,204,255,0.28);
-    filter: drop-shadow(0 1px 3px rgba(179,102,255,0.28));
-  }
-}
-
 /* On small screens, ensure the background fully covers the viewport and use the dark fallback colour */
 @media (max-width: 800px) {
   body {
@@ -81,17 +48,62 @@ body {
   }
 }
 
-li {
-  margin: 10px 0;
-}
-
 p, li {
+
+  flex-direction: column;
   color: #BFBFBF;
   font-size: 1.2em;
 }
 
-dl, p > a {
+#how-use {
+  height: 300px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+}
+
+#how-use > dl > dt, dd {
+  color: burlywood;
+}
+
+#download-section > p {
+  font-size: 15px;
+  color: #DDD;
+}
+
+.ask-contact {
+
+  width: 850px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-size: 17px;
+  color: burlywood;
+
+}
+
+.footer {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  width: 850px;
+  padding: 1em;
+  color: #888;
+  font-size: 15px;  
+}
+
+p > a {
   color: aqua;
+}
+
+p {
+  font-size: 25px;
+}
+
+ul {
+  font-size: 15px;
 }
 
 .sobre {
@@ -122,7 +134,7 @@ header {
   background-color: rgba(0, 0, 0, 0);
   height: 80px;
   padding: 0 2em;
-  z-index: 1;
+  z-index: 9999;
 }
 
 /* Prevent fixed header from overlapping anchor targets when navigating via #links */
@@ -144,7 +156,7 @@ header {
   margin: 0;
   padding: 0;
   margin-left: 8px;
-  margin-top: 50px; /* descer um pouco a imagem */
+  margin-top: 20px; /* descer um pouco a imagem */
 }
 
 /* Player icon to the right of the nav tabs in the header */
@@ -208,42 +220,36 @@ header {
   }
 }
 
-header::before {
-  content: "";
-  position: absolute;
-  top: -50px; /* Ajuste a posição vertical do efeito de glow */
-  left: 0;
-  right: 0;
-  height: 60px; /* Altura do efeito de glow */
-  background: linear-gradient(to right, #b366ff, #00ccff, #b366ff);
-  animation: glowShift 6s infinite linear; /* Ajuste a duração da animação */
-  pointer-events: none;
-  z-index: -1;
-  filter: blur(15px);
-  background-size: 200% 100%;
-}
-
-@keyframes glowShift {
-  0% { 
-    background-position: 0% 0%;
-  }
-  50% { 
-    background-position: 100% 0%;
-  }
-  100% { 
-    background-position: 0% 0%;
-  }
-}
-
-@keyframes glow {
-  0%, 100% { opacity: 0; }
-  100% { opacity: 1; } /* Ajuste a opacidade máxima do efeito de glow */
-}
-
 h1 {
   font-size: 2em;
   margin: 0.5em;
   color: rgb(0, 238, 255);
+}
+
+#sobre-objetivo {
+  font-size: 30px;
+  text-align: center;
+}
+
+.sessao-inimigos {
+  
+  text-align: left;
+}
+
+#sobre-inimigos {
+
+  font-size: 30px;
+  text-align: center;
+
+}
+
+#inimigos-titulo {
+  margin: auto;
+  width: 720px;
+  text-align: left;
+  color: white;
+  font-size: 18px;
+  text-align: left;
 }
 
 nav {
@@ -267,7 +273,6 @@ nav a::after {
   transform: translate(-50%, -50%);
   width: 80%;
   height: 80%;
-  background: radial-gradient(circle, #b366ff, #00ccff, transparent);
   animation: glowShift 6s infinite linear;
   filter: blur(10px);
   pointer-events: none;
@@ -299,6 +304,7 @@ nav a.tilt-exit {
 
 nav a:hover::after {
   opacity: 1;
+
 }
 
 nav img {
@@ -339,6 +345,14 @@ nav a[href="#sobre"] {
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
+}
+
+.header-right.open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  max-width: 410px;
 }
 
 header {
@@ -426,40 +440,6 @@ header {
   filter: drop-shadow(0 0 6px rgba(179,102,255,0.7)) drop-shadow(0 0 10px rgba(0,204,255,0.45));
 }
 
-@keyframes arrowGlow {
-  0% {
-    stroke: rgba(234,251,255,0.95);
-    filter: drop-shadow(0 0 4px rgba(179,102,255,0.6)) drop-shadow(0 0 8px rgba(0,204,255,0.45));
-  }
-  50% {
-    stroke: rgba(255,255,255,1);
-    filter: drop-shadow(0 0 10px rgba(179,102,255,0.9)) drop-shadow(0 0 18px rgba(0,204,255,0.9));
-  }
-  100% {
-    stroke: rgba(234,251,255,0.95);
-    filter: drop-shadow(0 0 4px rgba(179,102,255,0.6)) drop-shadow(0 0 8px rgba(0,204,255,0.45));
-  }
-}
-
-.player-arrow { animation: arrowGlow 6s infinite linear; }
-
-
-/* text-based animated glow for the message (replaces the background glow) */
-@keyframes textGlow {
-  0% {
-    text-shadow: 0 0 4px rgba(179,102,255,0.9), 0 0 10px rgba(0,204,255,0.6);
-    color: #EAFBFF;
-  }
-  50% {
-    text-shadow: 0 0 10px rgba(179,102,255,0.6), 0 0 20px rgba(0,204,255,0.9);
-    color: #FFFFFF;
-  }
-  100% {
-    text-shadow: 0 0 4px rgba(179,102,255,0.9), 0 0 10px rgba(0,204,255,0.6);
-    color: #EAFBFF;
-  }
-}
-
 @keyframes levitate {
   0%, 100% {
     transform: translateY(-50%);
@@ -492,15 +472,39 @@ section {
   margin-bottom: 2em;
 }
 
-h2, h3 {
+h2 {
   background: linear-gradient(90deg, #b366ff, #00ccff, #b366ff);
   background-size: 200% 100%;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: gradientShift 6s infinite linear;
-  filter: drop-shadow(0 0 8px rgba(179, 102, 255, 0.6)) drop-shadow(0 0 12px rgba(0, 204, 255, 0.4));
-  text-shadow: 0 0 8px rgba(179, 102, 255, 0.5), 0 0 12px rgba(0, 204, 255, 0.3);
+  filter: drop-shadow(0 0 0px rgba(179, 102, 255, 0.6)) drop-shadow(0 0 0px rgba(0, 204, 255, 0.4));
+  text-shadow: 0 0 8px rgba(179, 102, 255, 0.5), 0 0 0px rgba(0, 204, 255, 0.3);
+}
+
+h3 {
+  color: royalblue;
+  background-clip: text;
+  animation: gradientShift 6s infinite linear;
+  filter: drop-shadow(0 0 0px rgb(255, 255, 255)) drop-shadow(0 0 0px rgb(255, 255, 255));
+  text-shadow: 0 0 2px rgb(255, 255, 255), 0 0 0px rgb(255, 255, 255);
+}
+
+#download {
+  color: #EAFBFF;
+  filter: drop-shadow(0 0 10px rgb(255, 102, 102)) drop-shadow(0 0 0px rgba(255, 0, 0, 0.4));
+  text-shadow: 0 0 8px rgba(102, 255, 191, 0.5), 0 0 0px rgba(255, 0, 0, 0.3);
+}
+
+#install {
+  height: auto;
+  background-color: #f7ff19;
+  font-family: inherit;
+  color: #04040a;
+  font-weight: bold;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
 }
 
 @keyframes gradientShift {
@@ -517,11 +521,14 @@ h2, h3 {
 
 /* Larger, centered title for the main (middle) box */
 #hero-title {
-  font-size: 2.6rem; /* increased size */
+  font-size: 60px; /* increased size */
   text-align: center;
-  margin: 0 0 0.6rem 0;
+  margin: 70px;
   line-height: 1.05;
   letter-spacing: 0.2px;
+  filter: drop-shadow(0 0 5px rgba(0, 238, 255, 0.8)) drop-shadow(0 0 1px rgba(0, 204, 255, 0.4));
+  text-shadow: 0 0 0px rgba(255, 102, 102, 0.5), 0 0 1px rgba(0, 204, 255, 0.3);
+  /*rgba(0, 238, 255, 0.8)*/
 }
 
 
@@ -540,9 +547,8 @@ a, button, .clicavel {
   text-align: justify;
   position: relative;
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(179, 102, 255, 0.5), 0 0 30px rgba(0, 204, 255, 0.3);
   animation: glowShift 6s infinite linear;
+  z-index: 1;
 }
 
 /* Center headings inside each .caixa (h1/h2/h3) */
@@ -727,24 +733,6 @@ a, button, .clicavel {
   /* create stacking context for pseudo-element */
   isolation: isolate;
 }
-.corner-up::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 95%;
-  height: 95%;
-  background: radial-gradient(circle, #b366ff, #00ccff, transparent);
-  background-size: 200% 100%;
-  filter: blur(8px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0; /* hidden by default */
-  transition: opacity 220ms ease, transform 220ms ease;
-  animation: glowShift 6s infinite linear;
-  animation-play-state: paused;
-}
 .corner-up img {
   position: relative;
   z-index: 2;
@@ -826,6 +814,18 @@ a, button, .clicavel {
   display: block;
   border-radius: 8px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+#como-jogar {
+  margin-top: 50px;
+}
+
+#trailer-title, #como-title {
+  
+  font-size: 15px;
+  color: darkgray;
+  filter: drop-shadow(0 0 0px rgba(179, 102, 255, 0.6)) drop-shadow(0 0 0px rgba(0, 204, 255, 0.4));
+  text-shadow: 0 0 10px rgba(179, 102, 255, 0.5), 0 0 0px rgba(0, 204, 255, 0.3);
 }
 
 @media (max-width: 640px) {

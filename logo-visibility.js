@@ -233,6 +233,16 @@ document.addEventListener('DOMContentLoaded', () => {
       playerMsg.style.pointerEvents = 'auto';
     }
 
+    // menu opens only when mouse enters the button
+    playerWrap.addEventListener('mouseenter', () => {
+      if (!launched) launchAndReveal();
+    });
+
+    // menu closes when mouse leaves the entire header-right area (button + menu)
+    headerRight.addEventListener('mouseleave', () => {
+      if (launched) returnAndHide();
+    });
+
     // click toggles between launch+reveal and return+hide
     playerWrap.addEventListener('click', () => {
       if (!launched) launchAndReveal();

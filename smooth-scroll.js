@@ -26,35 +26,27 @@ document.addEventListener('DOMContentLoaded', function () {
   corner.addEventListener('click', function (e) {
     e.preventDefault();
     // perform smooth scroll to top
-    // Use native smooth scroll when available
-    if ('scrollBehavior' in document.documentElement.style) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      // re-enable handlers shortly after native animation likely finished
-      // fire a single scroll event after a short delay to ensure UI updates
-      setTimeout(() => window.dispatchEvent(new Event('scroll')), 650);
-    } else {
-      // Fallback: simple animated scroll
-      const duration = 500;
-      const start = window.pageYOffset;
-      const startTime = performance.now();
-      let rafId = null;
+    // Always use custom animated scroll for consistent 2-second duration
+    const duration = 0;
+    const start = window.pageYOffset;
+    const startTime = performance.now();
+    let rafId = null;
 
-      function easeInOutQuad(t) { return t<0.5 ? 2*t*t : -1+(4-2*t)*t; }
+    function easeInOutQuad(t) { return t<0.5 ? 2*t*t : -1+(4-2*t)*t; }
 
-      function scroll() {
-        const now = performance.now();
-        const time = Math.min(1, (now - startTime) / duration);
-        const timeFunc = easeInOutQuad(time);
-        window.scrollTo(0, Math.ceil((1 - timeFunc) * start));
-        if (time < 1) rafId = requestAnimationFrame(scroll);
-        else {
-          // finished
-          window.dispatchEvent(new Event('scroll'));
-          if (rafId) cancelAnimationFrame(rafId);
-        }
+    function scroll() {
+      const now = performance.now();
+      const time = Math.min(1, (now - startTime) / duration);
+      const timeFunc = easeInOutQuad(time);
+      window.scrollTo(0, Math.ceil((1 - timeFunc) * start));
+      if (time < 1) rafId = requestAnimationFrame(scroll);
+      else {
+        // finished
+        window.dispatchEvent(new Event('scroll'));
+        if (rafId) cancelAnimationFrame(rafId);
       }
-      rafId = requestAnimationFrame(scroll);
     }
+    rafId = requestAnimationFrame(scroll);
 
     // Accessibility: move focus to main content after scroll
     const main = document.querySelector('main') || document.body;
