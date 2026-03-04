@@ -522,15 +522,79 @@ h3 {
   text-shadow: 0 0 8px rgba(102, 255, 191, 0.5), 0 0 0px rgba(255, 0, 0, 0.3);
 }
 
-#install {
+/* Deploy Button Sci-Fi Styling */
+.deploy-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+#install.deploy-button {
+  position: relative;
   height: auto;
-  background-color: #f7ff19;
+  background-color: transparent;
   font-family: inherit;
-  color: #04040a;
+  color: #0ff;
   font-weight: bold;
-  padding: 8px 10px;
-  border: none;
-  border-radius: 8px;
+  padding: 15px 30px;
+  border: 2px solid #0ff;
+  border-radius: 0px;
+  cursor: none !important;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), inset 0 0 15px rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+#install.deploy-button:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.9), inset 0 0 25px rgba(0, 255, 255, 0.3), 0 0 40px rgba(0, 255, 136, 0.4);
+  color: #00ff88;
+  border-color: #00ff88;
+}
+
+/* Cursor piscante */
+.cursor-blink {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: rgba(0, 255, 255, 0.2);
+  overflow: hidden;
+  border-radius: 0px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0ff, #00ff88, #0ff);
+  width: 0%;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 25px rgba(0, 255, 136, 0.6);
+  transition: width 0.05s linear;
+}
+
+/* Deploy text */
+.deploy-text {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
 }
 
 @keyframes gradientShift {
