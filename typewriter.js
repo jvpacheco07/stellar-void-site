@@ -45,6 +45,9 @@ class TerminalTypewriter {
     this.terminal.appendChild(header);
     this.terminal.appendChild(content);
 
+    // Armazenar referência ao content para auto-scroll
+    this.contentElement = content;
+
     // Substituir conteúdo original
     this.element.innerHTML = '';
     this.element.appendChild(this.terminal);
@@ -149,14 +152,23 @@ Sobreviver.`;
         }
 
         this.textDisplay.textContent += line[charIndex];
+        this.autoScroll();
         await this.delay(speed);
       }
 
       // Adicionar quebra de linha (exceto na última)
       if (lineIndex < lines.length - 1) {
         this.textDisplay.textContent += '\n';
+        this.autoScroll();
         await this.delay(this.lineDelay);
       }
+    }
+  }
+
+  autoScroll() {
+    // Fazer scroll automático para o final do conteúdo
+    if (this.contentElement) {
+      this.contentElement.scrollTop = this.contentElement.scrollHeight;
     }
   }
 
