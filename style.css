@@ -44,27 +44,23 @@ body {
     background-size: cover;
     background-attachment: scroll;
     background-position: center center;
-    background-color: #04040a;
+    background-color: #0a0404;
   }
 }
 
-p, li {
+#sobre {
+  color: rgb(215, 250, 228);
+}
 
+p{
+  color: #BFBFBF;
+  font-size: 15px;
+}
+
+li {
   flex-direction: column;
   color: #BFBFBF;
-  font-size: 1.2em;
-}
-
-#how-use {
-  height: 300px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: center;
-}
-
-#how-use > dl > dt, dd {
-  color: burlywood;
+  font-size: 15px;
 }
 
 #download-section > p {
@@ -72,9 +68,28 @@ p, li {
   color: #DDD;
 }
 
-.ask-contact {
+#how-use {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-  width: 850px;
+#como-jogar {
+  width: 990px;
+  margin: auto;
+  padding-top: 20px;
+}
+
+#trailer-title, #como-title {
+  font-size: 15px;
+  color: darkgray;
+  filter: drop-shadow(0 0 0px rgba(179, 102, 255, 0.6)) drop-shadow(0 0 0px rgba(0, 204, 255, 0.4));
+  text-shadow: 0 0 10px rgba(179, 102, 255, 0.5), 0 0 0px rgba(0, 204, 255, 0.3);
+}
+
+.ask-contact {
+  width: 990px;
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -82,6 +97,20 @@ p, li {
   font-size: 17px;
   color: burlywood;
 
+}
+
+.nao-desista {
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+#contato-title {
+  text-align: left;
+  color: #BFBFBF;
+  filter: drop-shadow(0 0 0px rgb(0, 0, 0)) drop-shadow(0 0 0px rgb(255, 255, 255));
+  text-shadow: 0 0 2px rgb(0, 0, 0), 0 0 0px rgb(0, 0, 0);
 }
 
 .footer {
@@ -100,11 +129,7 @@ p > a {
 
 p {
   font-size: 25px;
-}
-
-ul {
-  font-size: 15px;
-}
+} 
 
 .sobre {
   display: flex;
@@ -231,14 +256,14 @@ h1 {
   text-align: center;
 }
 
-.sessao-inimigos {
-  
+.sessao-inimigos > li {
+  font-size: 18px;
   text-align: left;
 }
 
 #sobre-inimigos {
 
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
 
 }
@@ -248,7 +273,7 @@ h1 {
   width: 720px;
   text-align: left;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   text-align: left;
 }
 
@@ -464,7 +489,7 @@ header {
 
 main {
   padding: 100px 1em 1em 1em; /* 100px de espaço no topo */
-  max-width: 850px;
+  max-width: 1920px;
   margin: auto;
 }
 
@@ -473,6 +498,7 @@ section {
 }
 
 h2 {
+  color: antiquewhite;
   background: linear-gradient(90deg, #b366ff, #00ccff, #b366ff);
   background-size: 200% 100%;
   -webkit-background-clip: text;
@@ -483,7 +509,7 @@ h2 {
 }
 
 h3 {
-  color: royalblue;
+  color: #f7ff19;
   background-clip: text;
   animation: gradientShift 6s infinite linear;
   filter: drop-shadow(0 0 0px rgb(255, 255, 255)) drop-shadow(0 0 0px rgb(255, 255, 255));
@@ -492,7 +518,7 @@ h3 {
 
 #download {
   color: #EAFBFF;
-  filter: drop-shadow(0 0 10px rgb(255, 102, 102)) drop-shadow(0 0 0px rgba(255, 0, 0, 0.4));
+  filter: drop-shadow(0 0 10px rgb(176, 255, 102)) drop-shadow(0 0 0px rgba(255, 0, 0, 0.4));
   text-shadow: 0 0 8px rgba(102, 255, 191, 0.5), 0 0 0px rgba(255, 0, 0, 0.3);
 }
 
@@ -814,18 +840,6 @@ a, button, .clicavel {
   display: block;
   border-radius: 8px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-}
-
-#como-jogar {
-  margin-top: 50px;
-}
-
-#trailer-title, #como-title {
-  
-  font-size: 15px;
-  color: darkgray;
-  filter: drop-shadow(0 0 0px rgba(179, 102, 255, 0.6)) drop-shadow(0 0 0px rgba(0, 204, 255, 0.4));
-  text-shadow: 0 0 10px rgba(179, 102, 255, 0.5), 0 0 0px rgba(0, 204, 255, 0.3);
 }
 
 @media (max-width: 640px) {
