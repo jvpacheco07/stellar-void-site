@@ -941,3 +941,384 @@ img, .gif-topo, .trailer-video {
 
 /* Debug helpers removed */
 
+/* ===== TERMINAL TYPEWRITER STYLES ===== */
+
+.terminal-window {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 0, 0, 0.9));
+  border: 3px solid #00ff00;
+  border-radius: 8px;
+  font-family: 'Courier New', 'Courier', monospace;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.2), inset 0 0 20px rgba(0, 255, 0, 0.05);
+  overflow: hidden;
+  animation: terminalGlow 3s ease-in-out infinite;
+}
+
+@keyframes terminalGlow {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.2), inset 0 0 20px rgba(0, 255, 0, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.3), inset 0 0 25px rgba(0, 255, 0, 0.08);
+  }
+}
+
+.terminal-header {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 50, 0, 0.5));
+  border-bottom: 2px solid #00ff00;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.terminal-title {
+  flex: 1;
+  color: #00ff00;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-button {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: url(media/img/spr_gui_vida.cur), pointer;
+  border: 1px solid #00ff00;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-button.minimize {
+  background: #ffff00;
+}
+
+.terminal-button.maximize {
+  background: #00ff00;
+}
+
+.terminal-button.close {
+  background: #ff0000;
+}
+
+.terminal-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px currentColor;
+}
+
+.terminal-content {
+  padding: 1.5rem;
+  min-height: 400px;
+  max-height: 600px;
+  overflow-y: auto;
+  position: relative;
+  background: linear-gradient(180deg, rgba(0, 20, 0, 0.3), rgba(0, 10, 0, 0.5));
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+}
+
+/* Scrollbar estilizado */
+.terminal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 0, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.terminal-text {
+  color: #00ff00;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+  letter-spacing: 0.5px;
+  word-spacing: 2px;
+  min-height: 100%;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  margin-left: 2px;
+  animation: cursorBlink 1s infinite;
+  opacity: 1;
+}
+
+@keyframes cursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Linha de scan no terminal (efeito CRT) */
+.terminal-window::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.03),
+    rgba(0, 255, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  z-index: 1;
+  border-radius: 8px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .terminal-header {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .terminal-title {
+    word-break: break-word;
+  }
+
+  .terminal-content {
+    padding: 1rem;
+    min-height: 300px;
+    max-height: 500px;
+    font-size: 0.85rem;
+  }
+
+  .terminal-window {
+    border-width: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ===== ENEMIES SECTION STYLES ===== */
+
+/* Container dos botões dos inimigos */
+.enemies-buttons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(100, 0, 0, 0.1), rgba(150, 0, 0, 0.05));
+  border: 2px solid rgba(255, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* Botões dos inimigos */
+.enemy-button {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: bold;
+  color: #ff6b6b;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.05));
+  border: 2px solid #ff6b6b;
+  border-radius: 6px;
+  cursor: url(media/img/spr_gui_vida.cur), pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+.enemy-button:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.15));
+  color: #ff9999;
+  border-color: #ff9999;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), inset 0 0 10px rgba(255, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.enemy-button:active {
+  transform: translateY(0);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2), inset 0 0 5px rgba(255, 0, 0, 0.2);
+}
+
+.enemy-button:focus {
+  outline: none;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4), inset 0 0 10px rgba(255, 0, 0, 0.1);
+}
+
+/* Modal do inimigo */
+.enemy-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.enemy-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.enemy-modal-content {
+  background: linear-gradient(135deg, rgba(30, 0, 0, 0.95), rgba(50, 0, 0, 0.9));
+  border: 3px solid #ff6b6b;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.3), inset 0 0 20px rgba(255, 0, 0, 0.05);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: scale(0.95) translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.enemy-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 0, 0, 0.2);
+  border: 2px solid #ff6b6b;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #ff6b6b;
+  cursor: url(media/img/spr_gui_vida.cur), pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.enemy-modal-close:hover {
+  background: rgba(255, 0, 0, 0.4);
+  color: #ff9999;
+  border-color: #ff9999;
+  transform: rotate(90deg);
+}
+
+.enemy-modal-body {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+}
+
+.enemy-modal-gif-container {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 250px;
+  min-height: 250px;
+}
+
+.enemy-modal-gif {
+  max-width: 100%;
+  max-height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.enemy-modal-info {
+  flex: 1;
+  color: #e0e0e0;
+}
+
+.enemy-modal-info h2 {
+  color: #ff6b6b;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.enemy-modal-info p {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #d0d0d0;
+  margin: 0;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+  .enemies-buttons-container {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .enemy-button {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .enemy-modal-body {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .enemy-modal-gif-container {
+    width: 100%;
+    min-width: unset;
+    min-height: 200px;
+  }
+
+  .enemy-modal-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .enemy-modal-info p {
+    font-size: 0.9rem;
+  }
+}
+
