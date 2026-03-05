@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const videoContainer = document.getElementById('video-container');
   const video = document.getElementById('trailer-video');
   const scanlines = document.getElementById('scanlines');
+  const playButtonOverlay = document.getElementById('play-button-overlay');
+  const playButton = document.getElementById('play-button');
 
   let percent = 0;
   let lockedShown = false;
@@ -34,20 +36,28 @@ document.addEventListener('DOMContentLoaded', function () {
     receivingText.classList.add('fade-out');
     videoContainer.classList.remove('locked');
     videoContainer.setAttribute('aria-hidden', 'false');
-    // enable controls now that it's 'unlocked'
-    try { video.controls = true; } catch (e) {}
-    // autoplay muted (most browsers allow muted autoplay)
-    try {
-      video.muted = true;
+    // Show play button overlay instead of autoplaying
+    if (playButtonOverlay) {
+      playButtonOverlay.classList.add('visible');
+    }
+    // small visual cue
+    videoContainer.classList.add('unlocked');
+  }
+
+  // Play button logic
+  if (playButton) {
+    playButton.addEventListener('click', () => {
+      if (playButtonOverlay) {
+        playButtonOverlay.classList.remove('visible');
+      }
+      try { video.controls = true; } catch (e) {}
       const playPromise = video.play();
       if (playPromise && typeof playPromise.then === 'function') {
         playPromise.catch(() => {
-          // autoplay failed (browser restriction) — keep controls visible so user can start
+          // play failed
         });
       }
-    } catch (e) {}
-    // small visual cue
-    videoContainer.classList.add('unlocked');
+    });
   }
 
   // When the user plays the video, enable stronger scanlines
@@ -72,6 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
     percent = 0; lockedShown = false;
     staticOverlay.classList.remove('fade-out');
     receivingText.classList.remove('fade-out');
+    if (playButtonOverlay) {
+      playButtonOverlay.classList.remove('visible');
+    }
     simulateReceiving();
   });
 

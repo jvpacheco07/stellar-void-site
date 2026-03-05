@@ -136,19 +136,17 @@
           <br>
           <br>
           <br>
-          <h3 id="sobre-objetivo">Objetivo de Stellar Void</h3>
-          <p>
-            O jogador controla uma nave espacial, chamada Stellar Vanguard, cujo objetivo encontra-se salvar a humanidade da ameaça Legião.
-              Para isso, o jogador deve enfrentar ondas de inimigos cada vez mais desafiadores, culminando em batalhas contra chefes poderosos. 
-              O jogo é dividido em níveis, cada um representando um planeta conquistado pela Legião.       
-          </p>
+          <div class="mission-briefing-hud">
+            <div class="hud-header">// BRIEFING DE MISSÃO</div>
+            <div class="hud-divider"></div>
+            <div class="hud-content">
+              O jogador controla uma nave espacial, chamada Stellar Vanguard, cujo objetivo encontra-se salvar a humanidade da ameaça Legião. Para isso, o jogador deve enfrentar ondas de inimigos cada vez mais desafiadores, culminando em batalhas contra chefes poderosos. O jogo é dividido em níveis, cada um representando um planeta conquistado pela Legião.
+            </div>
+          </div>
           <br>
           <br>
           <br>
           <h3 id="sobre-inimigos">Inimigos</h3>
-          <br>
-          <h1 id="inimigos-titulo">Stellar Void possui uma gama de inimigos únicos, cada um com comportamentos e habilidades distintas</h1>
-          <br>
           <br>
           <ul class="sessao-inimigos"></ul>
         </section>
@@ -167,6 +165,11 @@
             <div class="receiving-text" id="receiving-text" aria-hidden="true">RECEIVING TRANSMISSION... 0%</div>
 
             <div class="video-container locked" id="video-container" aria-hidden="true">
+              <div class="play-button-overlay" id="play-button-overlay">
+                <button id="play-button" class="play-button" aria-label="Reproduzir trailer">
+                  <span class="play-icon">▶</span>
+                </button>
+              </div>
               <video id="trailer-video" class="trailer-video" preload="metadata">
                 <source src="media/Videos/Trailer.mp4" type="video/mp4">
                 O teu navegador não suporta vídeo HTML5.

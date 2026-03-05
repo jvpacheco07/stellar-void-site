@@ -816,6 +816,68 @@ a, button, .clicavel {
   z-index: 1;
 }
 
+/* Techy blue edge glow for dark sections: glow limited to borders only */
+.caixa, .video-wrapper, .download, .devlog-wrap,
+.enemy-modal-content, .enemy-modal-gif-container, .enemies-buttons-container,
+.transmission, .terminal-window, .loader-inner, .loader-progress,
+.deploy-system, .deploy-container, .deploy-wrapper, .ask-contact, .nao-desista {
+  position: relative; /* ensure pseudo-element aligns */
+}
+
+.caixa::before,
+.video-wrapper::before,
+.download::before,
+.devlog-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* align exactly with box edges */
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0; /* sit behind element content */
+  background: transparent; /* no fill */
+  box-shadow: 0 0 8px rgba(0,180,255,0.9), 0 0 20px rgba(0,110,255,0.55);
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  transition: opacity 360ms ease, transform 360ms ease;
+  will-change: opacity, transform;
+}
+
+/* Slightly stronger and animated glow on hover/focus to feel interactive */
+.caixa:hover::before,
+.video-wrapper:hover::before,
+.download:hover::before,
+.devlog-wrap:hover::before {
+  opacity: 0.36;
+  transform: scale(1.02);
+}
+
+/* sessao-inimigos already uses ::before; provide subtle outline via ::after */
+.sessao-inimigos::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background: transparent;
+  box-shadow: 0 0 6px rgba(0,175,255,0.85), 0 0 14px rgba(0,105,255,0.45);
+  opacity: 0.14;
+  mix-blend-mode: screen;
+  transition: opacity 360ms ease, transform 360ms ease;
+}
+.sessao-inimigos:hover::after { opacity: 0.28; transform: scale(1.01); }
+
+@keyframes techPulse {
+  0% { opacity: 0.12; }
+  50% { opacity: 0.22; }
+  100% { opacity: 0.12; }
+}
+
+/* gentle ongoing pulse for subtle life (affects only the shadow opacity) */
+.caixa::before, .video-wrapper::before, .download::before, .devlog-wrap::before, .sessao-inimigos::after {
+  animation: techPulse 6s ease-in-out infinite;
+}
+
 /* Center headings inside each .caixa (h1/h2/h3) */
 .caixa h1,
 .caixa h2,
@@ -1079,6 +1141,60 @@ a, button, .clicavel {
   display: block;
   border-radius: 8px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+/* Play button overlay for trailer */
+.play-button-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 5;
+  border-radius: 8px;
+}
+
+.play-button-overlay.visible {
+  display: flex;
+  animation: fadeInPlay 420ms ease;
+}
+
+@keyframes fadeInPlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 200, 255, 0.85), rgba(0, 150, 255, 0.75));
+  border: 2px solid #00ffff;
+  color: white;
+  font-size: 32px;
+  cursor: url(media/img/spr_gui_vida.cur), pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 280ms ease;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 15px rgba(0, 255, 255, 0.2);
+  will-change: transform, box-shadow;
+}
+
+.play-button:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), inset 0 0 20px rgba(0, 255, 255, 0.4);
+  background: linear-gradient(135deg, rgba(0, 220, 255, 0.95), rgba(0, 170, 255, 0.85));
+}
+
+.play-button:active {
+  transform: scale(1.06);
 }
 
 @media (max-width: 640px) {
@@ -1386,6 +1502,8 @@ img, .gif-topo, .trailer-video {
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .enemy-button:hover {
@@ -1404,6 +1522,50 @@ img, .gif-topo, .trailer-video {
 .enemy-button:focus {
   outline: none;
   box-shadow: 0 0 25px rgba(0, 255, 255, 0.4), inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+/* Scanline / flash effect on hover to simulate selection */
+.enemy-button::after {
+  content: '';
+  position: absolute;
+  left: -60%;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-20deg) translateX(0);
+  transition: transform 420ms cubic-bezier(.2,.9,.2,1), opacity 260ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.enemy-button:hover::after,
+.enemy-button:focus::after {
+  transform: translateX(220%);
+  opacity: 1;
+}
+
+/* Enemy intro and counter styles */
+.enemies-intro-wrapper {
+  max-width: 1000px;
+  margin: 0.2rem auto 1rem auto;
+  padding: 0 0.6rem;
+  text-align: left;
+  z-index: 2;
+}
+.enemy-counter {
+  font-family: monospace;
+  color: rgba(0,230,255,0.9);
+  opacity: 0.9;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+.enemy-intro-text {
+  font-family: monospace;
+  color: #cfeff6;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  min-height: 1.2em;
+  white-space: pre-wrap;
 }
 
 /* Modal do inimigo */
@@ -1721,6 +1883,42 @@ img, .gif-topo, .trailer-video {
 @keyframes scanlineShift {
   0% { background-position: 0 0; }
   100% { background-position: 0 60px; }
+}
+
+/* Mission Briefing HUD Panel */
+.mission-briefing-hud {
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  background: rgba(0, 15, 30, 0.7);
+  border: 1px solid #00ffff;
+  border-radius: 2px;
+  font-family: monospace;
+  color: #d0e8f2;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15), inset 0 0 20px rgba(0, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.hud-header {
+  background: rgba(0, 50, 80, 0.6);
+  color: #00ffff;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 200, 255, 0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hud-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 200, 0.4), transparent);
+  margin: 0;
+}
+
+.hud-content {
+  padding: 1.25rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
 }
 
 /* Devlog terminal styles */

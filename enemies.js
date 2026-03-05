@@ -127,6 +127,22 @@ function initEnemiesSection() {
   const enemiesSection = document.querySelector('.sessao-inimigos');
   
   if (!enemiesSection) return;
+  // Criar elemento de introdução (contador + texto com typing)
+  const introWrapper = document.createElement('div');
+  introWrapper.className = 'enemies-intro-wrapper';
+
+  const counter = document.createElement('div');
+  counter.className = 'enemy-counter';
+  counter.textContent = `// ${ENEMIES_DATA.length} UNIDADES INIMIGAS IDENTIFICADAS`;
+
+  const introText = document.createElement('div');
+  introText.className = 'enemy-intro-text';
+  introText.setAttribute('aria-live', 'polite');
+  introWrapper.appendChild(counter);
+  introWrapper.appendChild(introText);
+
+  // Inserir intro antes da seção de botões
+  enemiesSection.parentElement.insertBefore(introWrapper, enemiesSection);
 
   // Criar container para os botões
   const buttonsContainer = document.createElement('div');
@@ -148,8 +164,28 @@ function initEnemiesSection() {
   const parentUl = enemiesSection.parentElement;
   parentUl.insertBefore(buttonsContainer, enemiesSection);
 
+  // Iniciar typing introdutório
+  const introString = 'Stellar Void possui uma gama de inimigos únicos, cada um com comportamentos e habilidades distintas.';
+  typeWriter(introText, introString, 24).catch(() => {});
+
   // Criar modal (vai ser reutilizado para todos os inimigos)
   createEnemyModal();
+}
+
+// Simple typewriter used for small intro lines (returns a promise)
+function typeWriter(targetElement, text, speed = 30) {
+  return new Promise((resolve) => {
+    let i = 0;
+    targetElement.textContent = '';
+    const timer = setInterval(() => {
+      targetElement.textContent += text.charAt(i);
+      i++;
+      if (i >= text.length) {
+        clearInterval(timer);
+        resolve();
+      }
+    }, speed);
+  });
 }
 
 // Função para criar o modal
