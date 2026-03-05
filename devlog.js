@@ -97,6 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
     idx = 0; charIdx = 0; running = true; autoScroll = true; speed = 25; typeNext();
   });
   document.getElementById('devlog-fast').addEventListener('click', () => { speed = Math.max(5, Math.floor(speed / 3)); });
+  document.getElementById('devlog-load-all').addEventListener('click', () => {
+    running = false;
+    container.textContent = lines.join('\n');
+    idx = lines.length;
+    charIdx = 0;
+    autoScroll = true;
+    terminal.scrollTop = terminal.scrollHeight;
+    cursor.style.display = 'inline-block';
+  });
 
   // start
   cursor.style.display = 'inline-block';
