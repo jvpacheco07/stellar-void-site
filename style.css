@@ -17,6 +17,31 @@ body {
   cursor: url(media/img/spr_gui_vida.cur), default;
 } 
 
+/* Hero starfield canvas */
+.hero-caixa {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  background: linear-gradient(180deg, rgba(4,4,10,0.2), rgba(4,4,10,0.6));
+}
+.hero-stars-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+}
+#hero-title {
+  position: relative;
+  z-index: 2;
+  color: rgb(0, 238, 255);
+  text-shadow: 0 0 18px rgba(0,238,255,0.45);
+  mix-blend-mode: screen;
+}
+
 /* Custom cursor visuals (optimized) */
 .custom-cursor {
   position: fixed;
