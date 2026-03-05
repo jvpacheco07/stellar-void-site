@@ -1585,3 +1585,157 @@ img, .gif-topo, .trailer-video {
   }
 }
 
+/* Transmission / intercepted video styles */
+.transmission {
+  max-width: 980px;
+  margin: 0.5rem auto;
+  background: rgba(2,2,6,0.6);
+  border: 1px solid rgba(0,255,200,0.06);
+  padding: 8px;
+  position: relative;
+  color: #bff;
+}
+.transmission-screen {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: #000;
+  overflow: hidden;
+}
+.transmission-screen .static-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(-45deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 6px 6px, 6px 6px;
+  opacity: 0.95;
+  animation: staticNoise 0.12s steps(2) infinite, staticFlicker 1.6s infinite;
+  pointer-events: none;
+}
+.receiving-text {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  z-index: 6;
+  font-family: monospace;
+  color: #9ff;
+  text-shadow: 0 0 8px rgba(0,255,255,0.18);
+  font-size: 14px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.video-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, transform 0.4s ease, filter 0.4s ease;
+}
+.video-container.locked {
+  filter: blur(4px) grayscale(0.6) contrast(0.8);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+}
+.video-container.unlocked {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.trailer-video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
+.scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(to bottom, rgba(0,0,0,0.06) 0px, rgba(255,255,255,0.02) 1px);
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.scanlines.active {
+  opacity: 0.6;
+  animation: scanlineShift 6s linear infinite;
+}
+
+.static-overlay.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.15s, transform 0.6s ease;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+.receiving-text.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s;
+  pointer-events: none;
+}
+
+@keyframes staticNoise {
+  0% { background-position: 0 0, 0 0; }
+  50% { background-position: 6px 6px, -6px -6px; }
+  100% { background-position: 0 0, 0 0; }
+}
+
+@keyframes staticFlicker {
+  0% { opacity: 0.95; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0.95; }
+}
+
+@keyframes scanlineShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+
+/* Devlog terminal styles */
+.devlog-wrap {
+  max-width: 980px;
+  margin: 1.5rem auto;
+  color: #9ff;
+  font-family: monospace;
+}
+.devlog-wrap h2 {
+  margin: 0 0 0.5rem 0;
+  color: #6ff;
+  font-size: 1.1rem;
+}
+.devlog-terminal {
+  background: #020204;
+  border: 1px solid rgba(0,255,200,0.08);
+  padding: 0.75rem;
+  height: 220px;
+  overflow: auto;
+  position: relative;
+  box-shadow: inset 0 0 30px rgba(0,255,255,0.02);
+}
+.terminal-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #c7fffa;
+  line-height: 1.4em;
+  font-size: 13px;
+}
+.terminal-cursor {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: #6ff;
+  font-weight: bold;
+  animation: blink 1s steps(2,start) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+.devlog-controls { margin-top: 0.5rem; display:flex; gap:0.5rem; }
+.devlog-btn { background: rgba(0,0,0,0.6); color:#9ff; border:1px solid rgba(0,255,200,0.06); padding:6px 10px; cursor:pointer; }
+.devlog-btn:hover { background: rgba(0,255,200,0.04); }
+

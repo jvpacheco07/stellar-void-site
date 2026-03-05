@@ -149,70 +149,7 @@
           <h1 id="inimigos-titulo">Stellar Void possui uma gama de inimigos únicos, cada um com comportamentos e habilidades distintas</h1>
           <br>
           <br>
-          <ul>
-            <section class="sessao-inimigos">
-              <!-- <li>
-                "Basic Machines" — Inimigo simples que fica estático e atira numa
-                única direção. Animado em sequences, tem apenas 2 de vida e aparece em
-                grande quantidade.
-              </li>
-              <br>
-              <li>
-                "Kamikazes" — Inimigo com IA básica de máquina de estados. Ele
-                surge e move-se para uma posição aleatória. Ao chegar, entra num estado
-                onde dispara 3 tiros (os tiros seguem a última direção do jogador). Depois,
-                transforma-se num kamikaze e avança para a posição do jogador, sendo
-                destruído ao atingir o alvo. Tem apenas 3 de vida e geralmente aparece em
-                dupla.
-              </li>
-              <br>
-              <li>
-                "Strong Machine" — Funciona de forma semelhante ao "Kamikaze",
-                mas mantém-se estático e alterna entre 2 tipos de tiro: um que persegue o
-                jogador e outro que dispara em 3 ângulos diferentes. Após atirar 3 vezes, foge
-                da batalha. Tem 8 de vida — é um inimigo desafiante, mas balanceado.
-              </li>
-              <br>
-              <li>
-                "MK1" — É o chefe de Stellar Void. Fica estático no topo da tela e tem
-                alta resistência. Possui 3 fases desafiadoras:
-                <ul>
-                  <li>1ª fase: Atira projéteis na direção do jogador em 5 ângulos
-                    diferentes e pode invocar 2 Basic Machines.</li>
-                  <li>2ª fase: Atira 10 projéteis com velocidade maior.</li>
-                  <li>3ª fase: Atira 5 projéteis com menor intervalo entre disparos.</li>
-              </li>
-          </ul>
-          <br>
-          <li>
-            "Space Ranger" — Trata-se de um inimigo patrulhador. Dispara 2 projéteis que segue em
-            linha reta. Se movimenta um pouco para a esquerda depois para direita. Tem 6
-            de vida — É um Basic Machine melhorado.
-          </li>
-          <br>
-          <li>
-            “Warrior X” — Segundo inimigo desenhado e animado pelo João
-            Pacheco. Inimigo combatente, enfrenta-lo é um desafio para o jogador. Dispara
-            2 mísseis teleguiados com intervalo de 2 segundos. O player terá um feedback
-            visual - um target que terá um som de mira ao alvo. Tem 8 de vida.
-          </li>
-          <br>
-          <li>
-            “Operators” — O Operator é o terceiro inimigo desenhado e animado
-            por João Pacheco. Ele é invocado diretamente pelo OVNI, surgindo em
-            combate como uma unidade ágil e difícil de atingir. Seu tamanho reduzido o
-            torna um alvo desafiador, forçando o jogador a ajustar a mira e o tempo de
-            disparo.
-          </li>
-          <br>
-          <li>
-            “OVNI” — Inspirado em ETS de marte, os OVNIS são máquinas
-            desconhecidas, dizem que dentro delas habitam muitos inimigos. Ela irá
-            escolher quem invocar - 4 operators, 2 space ranger ou 1 Warrior X. Essa
-            máquina é um tanque que dura muito na batalha. Tem 150 pontos de vida.
-          </li> -->
-        </section>
-        </p>
+          <ul class="sessao-inimigos"></ul>
         </section>
       </div>
     </div>
@@ -223,19 +160,21 @@
       <h2 id="trailer">TRAILER</h2>
 
       <div class="video-wrapper">
-        <video class="trailer-video" controls preload="metadata">
-          <source src="media/Videos/Trailer.mp4" type="video/mp4">
-          O teu navegador não suporta vídeo HTML5.
-        </video>
+        <div class="transmission" id="transmission">
+          <div class="transmission-screen">
+            <div class="static-overlay" aria-hidden="true"></div>
+            <div class="receiving-text" id="receiving-text" aria-hidden="true">RECEIVING TRANSMISSION... 0%</div>
+
+            <div class="video-container locked" id="video-container" aria-hidden="true">
+              <video id="trailer-video" class="trailer-video" preload="metadata">
+                <source src="media/Videos/Trailer.mp4" type="video/mp4">
+                O teu navegador não suporta vídeo HTML5.
+              </video>
+              <div class="scanlines" id="scanlines" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
     </div>
     <br>
     <br>
@@ -295,6 +234,19 @@
     </div>
   </main>
 
+    <!-- Devlog terminal -->
+    <section class="devlog-wrap" aria-labelledby="devlog-title">
+      <h2 id="devlog-title">DEVLOG (terminal)</h2>
+      <div class="devlog-terminal" id="devlog-terminal" role="region" aria-live="polite" tabindex="0">
+        <div class="terminal-content" id="terminal-content"></div>
+        <div class="terminal-cursor" id="terminal-cursor" aria-hidden="true">█</div>
+      </div>
+      <div class="devlog-controls">
+        <button id="devlog-replay" class="devlog-btn">Replay</button>
+        <button id="devlog-fast" class="devlog-btn">Faster</button>
+      </div>
+    </section>
+
   <footer>
     <p class="footer">Stelar Void — demo interativa • © <!-- ano --> 2025</p>
   </footer>
@@ -305,6 +257,9 @@
   <script src="smooth-scroll.js"></script>
   <script src="loader.js"></script>
   <script src="protect-media.js"></script>
+  <script src="transmission.js"></script>
+  <script src="anchors.js"></script>
+  <script src="devlog.js"></script>
   <script src="deploy-button.js"></script>
   <script src="script_teste.js"></script>
   <script src="lasers.js"></script>
