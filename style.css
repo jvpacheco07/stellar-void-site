@@ -805,6 +805,7 @@ a, button, .clicavel {
 
 
 .caixa {
+  border: #00ffff 1px solid;
   border-radius: 12px;
   padding: 2em;
   margin: 2em auto;
