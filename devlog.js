@@ -48,7 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
     "[2026.02.27] - feat: transições de fase do chefe implementadas; passagem de tuning do comportamento do chefe",
     "[2026.02.28] - fix: logs de debug removidos; música do chefe ligada correctamente; gestor de waves da Fase 3 operacional; bug do textbox resolvido",
     "[2026.03.02] - balance: passagem de afinação de dificuldade da Fase 3",
-    "[2026.03.03] - feat: gestor de waves da Fase 3 concluído — testes necessários; arte da barra de estado do jogador actualizada"
+    "[2026.03.03] - feat: gestor de waves da Fase 3 concluído — testes necessários; arte da barra de estado do jogador actualizada",
+    "[2026.03.04] - feat: botão de deploy implementado com animação de progresso e estilização",
+    "[2026.03.04] - feat: botão de deploy aprimorado com atualizações de status em tempo real e melhorias de estilização",
+    "[2026.03.05] - feat: simulação de transmissão e terminal de devlog implementados com recursos interativos",
+    "[2026.03.05] - feat: nomes e descrições de inimigos atualizados para experiência de jogo aprimorada; animação de campo estelar do herói adicionada",
+    "[2026.03.05] - feat: HUD de briefing de missão e introdução de inimigos com efeito máquina de escrever adicionados; botão de reproduzir para vídeo do trailer implementado",
+    "[2026.03.05] - feat: botão 'Carregar Tudo' adicionado aos controles do devlog para exibir todas as linhas de uma vez",
+    "[2026.03.05] - art: gif do inimigo Winder adicionado",
+    "[2026.03.09] - feat: cabeçalho da história do jogo removido e fechamento da seção corrigido; borda adicionada ao elemento caixa",
+    "[2026.03.17] - art: gif do boss da terceira fase 53XX1 adicionado"
   ];
 
   const container = document.getElementById('terminal-content');
