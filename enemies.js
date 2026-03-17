@@ -113,7 +113,7 @@ const ENEMIES_DATA = [
   {
     id: 'stormbreaker',
     name: '53XX1',
-    gif: 'media/gifs/stormbreaker.gif',
+    gif: 'media/gifs/BOSS_FASE3-site.gif',
     description: 'A origem da Legião. Invoca tudo — lasers, cristais, reforços. Destruí-lo é acabar com a guerra',
     life: 200,
     move: 'Estático',
