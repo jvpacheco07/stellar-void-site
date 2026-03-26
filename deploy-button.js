@@ -81,8 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
   function triggerDownload() {
     // Cria um link temporário e clica nele
     const link = document.createElement('a');
-    link.href = 'Stellar_Void.zip';
-    link.download = 'stellar-void.zip';
+    link.href = 'Stellar_Void_26_03_2026.zip';
+    link.download = 'Stellar_Void_26_03_2026.zip';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
