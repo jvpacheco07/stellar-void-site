@@ -1,12 +1,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 92px; /* Prevent fixed header from overlapping anchor targets */
+  height: 100%;
 }
 
 body {
   margin: 0;
   font-family: monospace;
-  background-image: url(media/img/Background_site.png);
   /* Dark fallback colour so the page never shows white when image doesn't fill area */
   background-color: #04040a;
   background-size: cover; /* fill the viewport */
@@ -16,6 +16,18 @@ body {
   min-height: 100vh;
   cursor: url(media/img/spr_gui_vida.cur), default;
 } 
+
+/* Background video: covers viewport, sits behind content */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
 
 /* Hero starfield canvas */
 .hero-caixa {
