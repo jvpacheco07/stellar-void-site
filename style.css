@@ -1739,15 +1739,22 @@ img, .gif-topo, .trailer-video {
 /* Responsivo para mobile */
 @media (max-width: 768px) {
   .enemies-buttons-container {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.95rem;
     padding: 1rem;
+    border-radius: 10px;
   }
 
   .enemy-button {
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    padding: 1rem 1.1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+    text-align: center;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
   }
 
   .enemy-modal-body {
@@ -1759,15 +1766,15 @@ img, .gif-topo, .trailer-video {
   .enemy-modal-gif-container {
     width: 100%;
     min-width: unset;
-    min-height: 200px;
+    min-height: 220px;
   }
 
   .enemy-modal-info h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .enemy-modal-info p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .enemy-modal-stats {
@@ -1777,13 +1784,63 @@ img, .gif-topo, .trailer-video {
   }
 
   .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .stat-value {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
+
+@media (max-width: 480px) {
+  .enemies-buttons-container {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding: 0.85rem;
+  }
+
+  .enemy-button {
+    padding: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    min-height: 64px;
+  }
+
+  .enemy-modal-content {
+    max-width: 100%;
+    padding: 0.75rem;
+  }
+
+  .enemy-modal-body {
+    padding: 1rem;
+  }
+
+  .enemy-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 36px;
+    height: 36px;
+    font-size: 1.35rem;
+  }
+
+  .enemy-modal-gif-container {
+    min-height: 180px;
+    padding: 0.85rem;
+  }
+
+  .enemy-modal-info h2 {
+    font-size: 1.35rem;
+  }
+
+  .enemy-modal-info p {
+    font-size: 0.88rem;
+  }
+
+  .enemy-modal-stats {
+    padding: 0.9rem;
+  }
+}
+
 
 /* Transmission / intercepted video styles */
 .transmission {
