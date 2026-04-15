@@ -119,7 +119,8 @@ li {
 }
 
 #como-jogar {
-  width: 990px;
+  width: 100%;
+  max-width: 990px;
   margin: auto;
   padding-top: 20px;
 }
@@ -133,7 +134,8 @@ li {
 }
 
 .ask-contact {
-  width: 990px;
+  width: 100%;
+  max-width: 990px;
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -161,7 +163,8 @@ li {
   margin: auto;
   justify-content: center;
   text-align: center;
-  width: 850px;
+  width: 100%;
+  max-width: 850px;
   padding: 1em;
   color: #888;
   font-size: 15px;
@@ -188,7 +191,8 @@ p {
 }
 
 img {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   height: auto;
   border-radius: 5px;
 }
@@ -363,7 +367,8 @@ h1 {
 
 #inimigos-titulo {
   margin: auto;
-  width: 720px;
+  width: 100%;
+  max-width: 720px;
   text-align: left;
   color: #0ff;
   font-size: 20px;
