@@ -1488,6 +1488,13 @@ img, .gif-topo, .trailer-video {
 
 /* ===== ENEMIES SECTION STYLES ===== */
 
+.enemies-buttons-container, 
+.enemies-buttons-container *,
+.enemy-modal, 
+.enemy-modal * {
+  box-sizing: border-box;
+}
+
 /* Container dos botões dos inimigos */
 .enemies-buttons-container {
   display: grid;
@@ -1739,49 +1746,58 @@ img, .gif-topo, .trailer-video {
 /* Responsivo para mobile */
 @media (max-width: 768px) {
   .enemies-buttons-container {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 0.8rem;
-    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.6rem;
+    padding: 0.8rem;
   }
 
   .enemy-button {
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
     letter-spacing: 0.5px;
   }
 
   .enemy-modal-body {
     flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
+    gap: 0.8rem;
+    padding: 2.5rem 1rem 1rem 1rem;
+  }
+
+  .enemy-modal-close {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
   }
 
   .enemy-modal-gif-container {
     width: 100%;
     min-width: unset;
-    min-height: 200px;
+    min-height: 150px;
+    padding: 0.5rem;
   }
 
   .enemy-modal-info h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .enemy-modal-info p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .enemy-modal-stats {
     grid-template-columns: 1fr;
-    gap: 0.8rem;
-    padding: 1rem;
+    gap: 0.6rem;
+    padding: 0.8rem;
   }
 
   .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   .stat-value {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
 
