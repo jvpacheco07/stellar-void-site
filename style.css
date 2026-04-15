@@ -2282,3 +2282,145 @@ img,
 .devlog-btn:hover {
   background: rgba(0, 255, 200, 0.04);
 }
+
+/* ===== CORREÇÕES RESPONSIVIDADE ===== */
+
+/* Fix: p font-size duplicado (havia 15px e 25px) — unifica */
+p {
+  font-size: 1rem !important;
+  line-height: 1.7;
+}
+
+/* Fix: img global com max-width fixa quebrava cards de inimigos */
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Fix: logo e nav imgs com tamanhos explícitos preservados */
+.logo-barra {
+  width: auto !important;
+}
+
+nav img {
+  width: auto !important;
+  max-width: 130px !important;
+}
+
+/* Fix: caixa que contém inimigos pode ser mais larga */
+.caixa:has(.enemies-buttons-container),
+.caixa:has(.sessao-inimigos) {
+  max-width: 95vw;
+}
+
+/* Fix alternativo se :has não for suportado — adiciona classe no HTML */
+.caixa.caixa-larga {
+  max-width: 95vw;
+}
+
+/* Fix: gif do topo não deve ter margin negativa em mobile */
+@media (max-width: 720px) {
+  .gif-topo {
+    margin-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  p {
+    font-size: 0.95rem !important;
+  }
+
+  .caixa {
+    max-width: 100%;
+    margin: 1rem 0.5rem;
+  }
+
+  /* Cards dos inimigos: 2 colunas em tablet */
+  .enemies-buttons-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Cards dos inimigos: 1 coluna em telemóvel */
+  .enemies-buttons-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gif-topo {
+    margin-top: -20px !important;
+  }
+
+  p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ===== CORREÇÕES MODAIS INIMIGOS (desktop) ===== */
+
+/* Modal centrado corretamente */
+.enemy-modal {
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Limita o tamanho do modal em desktop */
+.enemy-modal-content {
+  max-width: min(900px, 92vw);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Container do GIF com tamanho fixo e controlado */
+.enemy-modal-gif-container {
+  flex: 0 0 260px;       /* largura fixa */
+  width: 260px;
+  max-width: 260px;
+  min-width: unset;
+  min-height: unset;
+  height: 260px;
+  overflow: hidden;      /* corta o que ultrapassar */
+  padding: 0.75rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* GIF sempre dentro do container, nunca ultrapassa */
+.enemy-modal-gif {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Stats grid: colunas com largura mínima garantida */
+.enemy-modal-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  box-sizing: border-box;
+}
+
+/* Stat value nunca parte o texto de forma feia */
+.stat-value {
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Body do modal com altura máxima controlada */
+.enemy-modal-body {
+  display: flex;
+  flex-wrap: wrap;       /* em ecrãs mais pequenos passa para coluna */
+  gap: 1.5rem;
+  padding: 2rem;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Lado da info ocupa o espaço restante, nunca menos de 220px */
+.enemy-modal-info {
+  flex: 1 1 220px;
+  min-width: 0;          /* permite o flex shrink funcionar */
+}
