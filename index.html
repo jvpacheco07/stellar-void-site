@@ -18,11 +18,7 @@
 </head>
 
 <body>
-
-  <video id="bg-video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="media/Videos/Fundo_site_60_frames.mp4" type="video/mp4">
-    O teu navegador não suporta vídeo HTML5.
-  </video>
+  <canvas id="bg-grid" aria-hidden="true"></canvas>
 
   <!-- Loading overlay shown until the page is fully ready -->
   <div id="site-loader" aria-hidden="true">
@@ -237,7 +233,7 @@
               </div>
               <div class="system-footer">
                 <span class="download-status" id="download-status">PRONTO</span>
-                <span class="download-size" id="download-size">77.6 MB</span>
+                <span class="download-size" id="download-size">90.3 MB</span>
               </div>
             </div>
           </div>
@@ -300,11 +296,11 @@
   <script src="anchors.js"></script>
   <script src="devlog.js"></script>
   <script src="deploy-button.js"></script>
-  <script src="script_teste.js"></script>
   <script src="lasers.js"></script>
   <script src="enemies.js"></script>
   <script src="typewriter.js"></script>
   <script src="hero-stars.js"></script>
+  <script src="background-grid.js"></script>
   <!-- floating up-arrow in bottom-right -->
   <a href="#" class="corner-up" aria-label="Voltar ao topo">
     <img src="media/img/keycaps/keycap_seta_cima.png" alt="Subir" />

@@ -3,13 +3,13 @@ html {
   scroll-padding-top: 92px;
   /* Prevent fixed header from overlapping anchor targets */
   height: 100%;
+  background-color: #04040a;
 }
 
 body {
   margin: 0;
   font-family: monospace;
-  /* Dark fallback colour so the page never shows white when image doesn't fill area */
-  background-color: #04040a;
+  background-color: transparent;
   background-size: cover;
   /* fill the viewport */
   background-repeat: no-repeat;
@@ -20,16 +20,14 @@ body {
   cursor: url(media/img/spr_gui_vida.cur), default;
 }
 
-/* Background video: covers viewport, sits behind content */
-#bg-video {
+#bg-grid {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
   z-index: -1;
   pointer-events: none;
+  display: block;
 }
 
 /* Hero starfield canvas */
@@ -1360,8 +1358,7 @@ button,
 /* Floating up-arrow in bottom-right corner */
 .corner-up {
   position: fixed;
-  right: 22px;
-  bottom: 22px;
+  inset: auto 22px 22px auto;
   width: 64px;
   height: auto;
   z-index: 900;
@@ -1428,9 +1425,8 @@ button,
 /* Message beside corner-up image (copies .player-message style) */
 .corner-message {
   position: fixed;
-  right: 86px;
+  inset: auto 86px 20px auto;
   /* slightly closer to the corner icon for balance */
-  bottom: 20px;
   padding: 4px 18px;
   background: transparent;
   color: #EAFBFF;
@@ -1885,6 +1881,8 @@ img,
 
 /* Container dos botões dos inimigos */
 .enemies-buttons-container {
+  position: relative;
+  z-index: 3;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
@@ -1897,6 +1895,8 @@ img,
 
 /* Botões dos inimigos */
 .enemy-button {
+  z-index: 1;
+  pointer-events: auto;
   padding: 1rem 1.5rem;
   font-size: 1rem;
   font-family: monospace;

@@ -153,6 +153,7 @@ function initEnemiesSection() {
   ENEMIES_DATA.forEach(enemy => {
     const button = document.createElement('button');
     button.className = 'enemy-button';
+    button.type = 'button';
     button.textContent = enemy.name;
     button.setAttribute('data-enemy-id', enemy.id);
     button.addEventListener('click', () => showEnemyModal(enemy));
@@ -254,7 +255,12 @@ function createEnemyModal() {
 
 // Função para mostrar o modal com informações do inimigo
 function showEnemyModal(enemy) {
-  const modal = document.getElementById('enemy-modal');
+  let modal = document.getElementById('enemy-modal');
+  if (!modal) {
+    createEnemyModal();
+    modal = document.getElementById('enemy-modal');
+  }
+
   const gifElement = document.getElementById('enemy-modal-gif');
   const nameElement = document.getElementById('enemy-modal-name');
   const descriptionElement = document.getElementById('enemy-modal-description');
@@ -262,6 +268,10 @@ function showEnemyModal(enemy) {
   const moveElement = document.getElementById('enemy-modal-move');
   const locationElement = document.getElementById('enemy-modal-location');
   const typeElement = document.getElementById('enemy-modal-type');
+
+  if (!modal || !gifElement || !nameElement || !descriptionElement || !lifeElement || !moveElement || !locationElement || !typeElement) {
+    return;
+  }
 
   gifElement.src = enemy.gif;
   gifElement.alt = enemy.name;

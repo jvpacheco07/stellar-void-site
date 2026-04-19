@@ -1,7 +1,10 @@
 // loader.js — hide the #site-loader when page is fully loaded
 (function () {
+  let hasRemovedLoader = false;
+
   function removeLoader(loader) {
-    if (!loader) return;
+    if (!loader || hasRemovedLoader) return;
+    hasRemovedLoader = true;
     // fade out
     loader.classList.add('loaded');
     // remove from DOM after transition
@@ -145,9 +148,9 @@
     // As extra safety, also remove loader on window.load (ensures all resources handled)
     window.addEventListener('load', () => { assets = getTrackableAssets(); total = assets.length; updateProgress(); }, { once: true });
 
-    // Fallback: if load/progress doesn't complete within 8s, remove loader anyway
+    // Fallback: if load/progress doesn't complete, remove loader anyway
     setTimeout(function () {
       if (document.getElementById('site-loader')) removeLoader(document.getElementById('site-loader'));
-    }, 8000);
+    }, 2500);
   });
 })();

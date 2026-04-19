@@ -79,12 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function triggerDownload() {
-    // Cria um link temporário e clica nele
-    const link = document.createElement('a');
-    link.href = 'Stellar_Void.exe';
-    link.download = 'Stellar_Void.exe';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const githubReleaseUrl = 'https://github.com/jvpacheco07/stellar-void-site/releases/download/game/Stellar_Void.exe';
+    window.open(githubReleaseUrl, '_blank', 'noopener');
   }
 });
