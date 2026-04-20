@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; frame-src https://www.youtube.com https://youtube.com; script-src 'self' 'unsafe-inline' https://www.youtube.com https://youtube.com; style-src 'self' 'unsafe-inline';">
   <title>Stellar Void</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -155,29 +156,19 @@
     <br>
     <br>
     <br>
-    <!-- <div class="caixa">
-      <h2 id="trailer">TRAILER</h2> -->
-
-      <!--<div class="video-wrapper">
-        <div class="transmission" id="transmission">
-          <div class="transmission-screen">
-            <div class="static-overlay" aria-hidden="true"></div>
-            <div class="receiving-text" id="receiving-text" aria-hidden="true">RECEIVING TRANSMISSION... 0%</div>
-
-            <div class="video-container locked" id="video-container" aria-hidden="true">
-              <div class="play-button-overlay" id="play-button-overlay">
-                <button id="play-button" class="play-button" aria-label="Reproduzir trailer">
-                  <span class="play-icon">▶</span>
-                </button>
-              </div>
-              <video id="trailer-video" class="trailer-video" preload="metadata">
-                <source src="media/Videos/Trailer.mp4" type="video/mp4">
-                O teu navegador não suporta vídeo HTML5.
-              </video>
-              <div class="scanlines" id="scanlines" aria-hidden="true"></div>
-            </div>
+    <div class="caixa">
+      <h2 id="trailer">TRAILER</h2>
+        <div class="video-wrapper" style="max-width: 350px; margin: auto;"> <div style="position: relative; width: 100%; padding-bottom: 177.77%; height: 0; overflow: hidden;">
+            <iframe
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 8px;"
+                src="https://www.youtube.com/embed/tGyODY3VoFA?modestbranding=1"
+                title="Stellar Void Trailer"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
           </div>
-        </div>-->
+        </div>
       </div>
     </div>
     <br>
